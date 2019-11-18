@@ -1,0 +1,33 @@
+server:
+  port: 8001
+
+mybatis:
+  #mybatis配置文件所在路径
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  #配置实体类所在包
+  type-aliases-package: com.hss.springcloud.entities
+  #mapper映射文件
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml
+
+spring:
+  application:
+    name: microservicecloud-dept
+  datasource:
+    #当前数据源操作类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    #mysql驱动包
+    driver-class-name: org.gjt.mm.mysql.Driver
+    #数据库
+    url: jdbc:mysql://localhost:3306/cloudDB01
+    username: root
+    password: root
+    dbcp2:
+      #最小维持连接数
+      min-idle: 5
+      #初始化连接数
+      initial-size: 5
+      #最大连接数
+      max-total: 5
+      #等待连接获取的最大超时时间
+      max-wait-millis: 200
