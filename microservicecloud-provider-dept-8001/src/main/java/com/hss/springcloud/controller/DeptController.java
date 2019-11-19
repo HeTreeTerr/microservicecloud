@@ -35,7 +35,7 @@ public class DeptController {
     }
 
     @RequestMapping(value = "/dept/delete/{id}",method = RequestMethod.DELETE)
-    public Boolean deletedelete(@PathVariable("id") Long id){
+    public Boolean delete(@PathVariable("id") Long id){
         logger.info("查找所有部门信息");
         return deptService.deleteDept(id);
     }

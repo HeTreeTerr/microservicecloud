@@ -5,8 +5,13 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 public class DeptController_Consumer {
@@ -31,5 +36,17 @@ public class DeptController_Consumer {
     @RequestMapping(value = "/consumer/dept/get/{id}")
     public Dept get(@PathVariable("id") Long id){
         return restTemplate.getForObject(RESR_URL_PREFIX+"/dept/get/"+id,Dept.class);
+    }
+
+    @RequestMapping(value = "/consumer/dept/list",method = RequestMethod.GET)
+    public List<Dept> list(){
+        return restTemplate.getForObject(RESR_URL_PREFIX+"/dept/list",List.class);
+    }
+
+    @RequestMapping(value = "/consumer/dept/delete/{id}",method = RequestMethod.DELETE)
+    public void delete(@PathVariable("id") Long id){
+//        Map<String, Object> classifyMap = new HashMap<>();
+//        classifyMap.put("id",id);
+        restTemplate.delete(RESR_URL_PREFIX+"/dept/delete/"+id);
     }
 }
