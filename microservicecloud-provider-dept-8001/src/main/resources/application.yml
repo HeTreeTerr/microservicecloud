@@ -37,4 +37,13 @@ eureka:
     service-url:
       defaultZone: http://localhost:7001/eureka/
   instance:
+    #自定义服务名称信息
     instance-id: microservicecloud-dept8001
+    #访问路径可以显示IP地址
+    prefer-ip-address: true
+
+info:
+  app.name: hss-microservicecloud
+  company.name: www.hss.com
+  build.artifactId: ${project.artifactId}$
+  build.version: ${project.version}$
