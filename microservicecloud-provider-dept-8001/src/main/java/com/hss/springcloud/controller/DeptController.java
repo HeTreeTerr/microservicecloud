@@ -2,8 +2,11 @@ package com.hss.springcloud.controller;
 
 import com.hss.springcloud.entities.Dept;
 import com.hss.springcloud.service.DeptService;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,6 +18,9 @@ public class DeptController {
 
     @Autowired
     private DeptService deptService;
+
+    @Autowired
+    private DiscoveryClient discoveryClient;
 
     @RequestMapping(value = "/dept/add",method = RequestMethod.POST)
     public Boolean add(@RequestBody Dept dept){
@@ -38,5 +44,18 @@ public class DeptController {
     public Boolean delete(@PathVariable("id") Long id){
         logger.info("查找所有部门信息");
         return deptService.deleteDept(id);
+    }
+
+    @RequestMapping(value = "/dept/discovery",method = RequestMethod.GET)
+    public Object discovery(){
+        List<String> list = discoveryClient.getServices();
+        logger.info("********"+list);
+
+        List<ServiceInstance> srvList = discoveryClient.getInstances("MICROSERVICECLOUD-DEPT");
+        for(ServiceInstance element : srvList){
+            logger.info(element.getServiceId()+ "\t" +element.getHost()+ "\t"
+                + element.getPort() +"\t"+element.getUri());
+        }
+        return this.discoveryClient;
     }
 }

@@ -18,7 +18,7 @@ public class DeptController_Consumer {
 
     private final static Logger logger = Logger.getLogger(DeptController_Consumer.class);
 
-    private static final String RESR_URL_PREFIX = "http://localhost:8001";
+    private static final String RESR_URL_PREFIX = "http://MICROSERVICECLOUD-DEPT";
 
     /*
     使用restTemplate访问restful接口非常的简单粗暴无脑。
@@ -48,5 +48,10 @@ public class DeptController_Consumer {
 //        Map<String, Object> classifyMap = new HashMap<>();
 //        classifyMap.put("id",id);
         restTemplate.delete(RESR_URL_PREFIX+"/dept/delete/"+id);
+    }
+
+    @RequestMapping(value = "/consumer/dept/discovery",method = {RequestMethod.GET,RequestMethod.POST})
+    public Object discovery(){
+        return restTemplate.getForObject(RESR_URL_PREFIX+"/dept/discovery",Object.class);
     }
 }

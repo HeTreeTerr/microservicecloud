@@ -45,5 +45,5 @@ eureka:
 info:
   app.name: hss-microservicecloud
   company.name: www.hss.com
-  build.artifactId: ${project.artifactId}$
-  build.version: ${project.version}$
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
