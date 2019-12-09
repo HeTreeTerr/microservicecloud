@@ -1,12 +1,12 @@
 server:
-  port: 7001
+  port: 7002
 
 eureka:
   instance:
     #eureka服务端的实例名称
-    hostname: localhost
+    hostname:localhost
     #集群
-    #hostname: peer1
+    #hostname: peer2
   client:
     #false不向注册中心注册自己
     register-with-eureka: false
@@ -16,7 +16,7 @@ eureka:
       #设置与Eureka Server交互的地址查询服务和注册服务
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
       #集群
-      #defaultZone: http://peer2:7002/eureka/,http://peer3:7003/eureka/
+      #defaultZone: http://peer1:7001/eureka/,http://peer3:7003/eureka/
 #  server:
 #    #禁用自我保护机制
 #    enable-self-preservation: false
