@@ -35,4 +35,11 @@ public class DeptServiceImpl implements DeptService {
     public Boolean deleteDept(Long id) {
         return deptDao.deleteDept(id);
     }
+
+    @Override
+    public Dept addDeptKey(Dept dept) {
+        deptDao.addDeptKey(dept);
+        dept = deptDao.findById(dept.getDeptNo());
+        return dept;
+    }
 }

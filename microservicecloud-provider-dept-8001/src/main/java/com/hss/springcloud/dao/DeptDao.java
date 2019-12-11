@@ -18,4 +18,6 @@ public interface DeptDao {
     public List<Dept> findAll();
     //删
     public Boolean deleteDept(@Param(value = "id")Long id);
+    //增加，返回主键
+    public Long addDeptKey(Dept dept);
 }

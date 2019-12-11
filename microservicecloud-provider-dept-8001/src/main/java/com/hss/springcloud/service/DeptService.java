@@ -13,4 +13,6 @@ public interface DeptService {
     public List<Dept> findAll();
     //删
     public Boolean deleteDept(Long id);
+    //增加，返回主键
+    public Dept addDeptKey(Dept dept);
 }

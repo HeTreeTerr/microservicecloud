@@ -46,6 +46,12 @@ public class DeptController {
         return deptService.deleteDept(id);
     }
 
+    @RequestMapping(value = "/dept/addDeptKey",method = {RequestMethod.POST})
+    public Dept addDeptKey(@RequestBody Dept dept){
+        logger.info("执行添加部门信息");
+        return deptService.addDeptKey(dept);
+    }
+
     @RequestMapping(value = "/dept/discovery",method = RequestMethod.GET)
     public Object discovery(){
         List<String> list = discoveryClient.getServices();

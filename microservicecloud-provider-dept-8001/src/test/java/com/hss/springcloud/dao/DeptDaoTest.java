@@ -46,4 +46,12 @@ public class DeptDaoTest {
         Boolean flag = deptDao.deleteDept(1L);
         logger.info("flag>>>>>="+flag);
     }
+
+    @Test
+    public void addDeptKey(){
+        Dept dept = new Dept();
+        dept.setDeptName("五六七...");
+        deptDao.addDeptKey(dept);
+        logger.info("id="+dept.getDeptNo());
+    }
 }

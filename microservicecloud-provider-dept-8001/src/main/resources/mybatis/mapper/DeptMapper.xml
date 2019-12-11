@@ -31,4 +31,9 @@
         delete from dept
         where dept_no = #{id}
     </delete>
+
+    <insert id="addDeptKey" parameterType="com.hss.springcloud.entities.Dept" useGeneratedKeys="true" keyProperty="deptNo">
+        insert into dept(dept_name,db_source)
+          values(#{deptName},DATABASE())
+    </insert>
 </mapper>
