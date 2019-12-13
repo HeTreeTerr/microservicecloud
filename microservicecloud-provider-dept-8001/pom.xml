@@ -83,14 +83,14 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
-        <!--热部署-->
-        <dependency>
+        <!--热部署,暂时注解掉，提供者想要启动两份时，热部署会影响启动-->
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-loader-tools</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
-        </dependency>
+        </dependency>-->
     </dependencies>
 </project>
