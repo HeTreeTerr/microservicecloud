@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hss.DeptDao">
+<mapper namespace="com.hss.springcloud.dao.DeptDao">
     <resultMap id="deptResultMap" type="com.hss.springcloud.entities.Dept">
         <id column="dept_no" jdbcType="BIGINT" property="deptNo" />
         <result column="dept_name" jdbcType="VARCHAR" property="deptName" />

@@ -4,7 +4,7 @@ Navicat MySQL Data Transfer
 Source Server         : mysql
 Source Server Version : 50717
 Source Host           : localhost:3306
-Source Database       : clouddb01
+Source Database       : clouddb02
 
 Target Server Type    : MYSQL
 Target Server Version : 50717
@@ -29,8 +29,8 @@ CREATE TABLE `dept` (
 -- ----------------------------
 -- Records of dept
 -- ----------------------------
-INSERT INTO `dept` VALUES ('2', '人事部', 'clouddb01');
-INSERT INTO `dept` VALUES ('3', '财务部', 'clouddb01');
-INSERT INTO `dept` VALUES ('4', '市场部', 'clouddb01');
-INSERT INTO `dept` VALUES ('5', '运维部', 'clouddb01');
-INSERT INTO `dept` VALUES ('6', '五六七', 'clouddb01');
+INSERT INTO `dept` VALUES ('2', '人事部', 'clouddb02');
+INSERT INTO `dept` VALUES ('3', '财务部', 'clouddb02');
+INSERT INTO `dept` VALUES ('4', '市场部', 'clouddb02');
+INSERT INTO `dept` VALUES ('5', '运维部', 'clouddb02');
+INSERT INTO `dept` VALUES ('6', '五六七', 'clouddb02');
