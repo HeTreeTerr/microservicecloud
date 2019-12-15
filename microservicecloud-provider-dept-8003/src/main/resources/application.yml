@@ -1,0 +1,50 @@
+server:
+  port: 8001
+
+mybatis:
+  #mybatis配置文件所在路径
+  config-location: classpath:mybatis/mybatis.cfg.xml
+  #配置实体类所在包
+  type-aliases-package: com.hss.springcloud.entities
+  #mapper映射文件
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml
+
+spring:
+  application:
+    name: microservicecloud-dept
+  datasource:
+    #当前数据源操作类型
+    type: com.alibaba.druid.pool.DruidDataSource
+    #mysql驱动包
+    driver-class-name: org.gjt.mm.mysql.Driver
+    #数据库
+    url: jdbc:mysql://localhost:3306/cloudDB01
+    username: root
+    password: root
+    dbcp2:
+      #最小维持连接数
+      min-idle: 5
+      #初始化连接数
+      initial-size: 5
+      #最大连接数
+      max-total: 5
+      #等待连接获取的最大超时时间
+      max-wait-millis: 200
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+      #defaultZone: http://peer1:7001/eureka/,http://peer2:7002/eureka/,http://peer3:7003/eureka/
+  instance:
+    #自定义服务名称信息
+    instance-id: microservicecloud-dept8001
+    #访问路径可以显示IP地址
+    prefer-ip-address: true
+
+info:
+  app.name: hss-microservicecloud
+  company.name: www.hss.com
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
