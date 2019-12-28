@@ -59,6 +59,16 @@ public class RandomRule_ZY extends AbstractLoadBalancerRule {
                 }
             }
 
+            if (server == null) {
+                /*
+                 * The only time this should happen is if the server list were somehow trimmed.
+                 * This is a transient condition. Retry after yielding.
+                 */
+                Thread.yield();
+                continue;
+            }
+
+
             if(server.isAlive()){
                 return (server);
             }

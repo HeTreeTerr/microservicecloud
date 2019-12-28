@@ -20,6 +20,8 @@ public class MySelfRule {
         //随机
         //return new RandomRule();
         //默认轮询
-        return new RoundRobinRule();
+        //return new RoundRobinRule();
+        //自定义每台机器5次
+        return new RandomRule_ZY();
     }
 }
