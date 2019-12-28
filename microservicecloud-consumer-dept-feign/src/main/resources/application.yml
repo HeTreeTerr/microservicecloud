@@ -1,0 +1,18 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: microservicecloud-user-feign
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    #register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+      #defaultZone: http://peer1:7001/eureka/,http://peer2:7002/eureka/,http://peer3:7003/eureka/
+  instance:
+    #自定义服务名称信息
+    instance-id: microservicecloud-user-feign
+    #访问路径可以显示IP地址
+    prefer-ip-address: true
