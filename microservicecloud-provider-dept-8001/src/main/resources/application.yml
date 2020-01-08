@@ -19,7 +19,7 @@ spring:
     #mysql驱动包
     driver-class-name: org.gjt.mm.mysql.Driver
     #数据库
-    url: jdbc:mysql://192.168.2.106:3306/cloudDB01
+    url: jdbc:mysql://192.168.2.107:3306/cloudDB01
     username: root
     password: root
     dbcp2:

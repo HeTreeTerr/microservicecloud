@@ -1,0 +1,31 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: microservicecloud-zuul-gateway
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/
+      #defaultZone: http://peer1:7001/eureka/,http://peer2:7002/eureka/,http://peer3:7003/eureka/
+  instance:
+    instance-id: gateway-9527.com
+    prefer-ip-address: true
+
+
+zuul:
+  #此处添加ignored-services的意义是忽略通过服务名可以访问微服务(添加完成之后不能通过服务名访问微服务)
+  #ignored-services: microservicecloud-dept
+  prefix: /hss #增加统一的访问前缀
+  ignored-services: "*"
+  routes:
+    mydept.serviceId: microservicecloud-dept
+    mydept.path: /mydept/**
+
+info:
+  app.name: hss-microservicecloud
+  company.name: www.hss.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
