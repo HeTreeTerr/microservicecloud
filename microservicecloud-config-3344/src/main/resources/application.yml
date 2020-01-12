@@ -12,3 +12,5 @@ spring:
           #仓库是私有仓库，不能直接访问，需要账号密码
           username: 3110708879@qq.com
           password: ********
+          basedir: F:/资料/java/IdeaProjects/microservicecloud-config #指定缓存路径
+          force-pull: true  #是否强制拉取
