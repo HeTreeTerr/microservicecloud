@@ -5,3 +5,7 @@ spring:
       profile: test  #本次访问的配置项
       label: master  #分支
       uri: http://127.0.0.1:3344/  #本服务启动后，先去找3344号服务，通过SpringCloudConfig获取GitHub的服务地址
+
+management:
+  security:
+    enabled: false
