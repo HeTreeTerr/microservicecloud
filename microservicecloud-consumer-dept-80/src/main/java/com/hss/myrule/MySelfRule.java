@@ -1,8 +1,6 @@
 package com.hss.myrule;
 
-import com.netflix.loadbalancer.IRule;
-import com.netflix.loadbalancer.RandomRule;
-import com.netflix.loadbalancer.RoundRobinRule;
+import com.netflix.loadbalancer.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -19,9 +17,20 @@ public class MySelfRule {
     public IRule myRule(){
 //        随机
 //        return new RandomRule();
+
 //        默认轮询
 //        return new RoundRobinRule();
+
+//        会先过滤掉由于多次访问故障而处于断路器跳闸状态的服务，还有并发的连接数超过阈值的服务，然后对剩余的服务列表进行轮询
+//        return new AvailabilityFilteringRule();
+
+//        权重策略
+//        return new WeightedResponseTimeRule();
+
+//        重试策略
+        return new RetryRule();
+
 //        自定义每台机器5次
-        return new RandomRule_ZY();
+//        return new RandomRule_ZY();
     }
 }
