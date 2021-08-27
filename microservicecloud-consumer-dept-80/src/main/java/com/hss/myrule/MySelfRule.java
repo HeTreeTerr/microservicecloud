@@ -15,22 +15,28 @@ public class MySelfRule {
 
     @Bean
     public IRule myRule(){
-//        随机
+//        随机策略
 //        return new RandomRule();
 
-//        默认轮询
+//        轮询策略(默认)
 //        return new RoundRobinRule();
 
-//        会先过滤掉由于多次访问故障而处于断路器跳闸状态的服务，还有并发的连接数超过阈值的服务，然后对剩余的服务列表进行轮询
+//        可用过滤策略(会先过滤掉由于多次访问故障而处于断路器跳闸状态的服务，还有并发的连接数超过阈值的服务，然后对剩余的服务列表进行轮询)
 //        return new AvailabilityFilteringRule();
 
-//        权重策略
+//        响应时间加权重策略
 //        return new WeightedResponseTimeRule();
 
 //        重试策略
-        return new RetryRule();
+//        return new RetryRule();
+
+//        最低并发策略
+//        return new BestAvailableRule();
+
+//        区域权重策略
+//        return new ZoneAvoidanceRule();
 
 //        自定义每台机器5次
-//        return new RandomRule_ZY();
+        return new RandomRule_ZY();
     }
 }
