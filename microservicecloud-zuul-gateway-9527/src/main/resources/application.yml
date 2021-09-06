@@ -20,6 +20,7 @@ zuul:
   #ignored-services: microservicecloud-dept
   prefix: /hss #增加统一的访问前缀
   ignored-services: "*"
+  #ignored-patterns: /**/list/**
   routes:
     mydept.serviceId: microservicecloud-dept
     mydept.path: /mydept/**
