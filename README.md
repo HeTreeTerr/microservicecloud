@@ -71,6 +71,15 @@ Netflix的中间层服务连接在一起。Ribbon客户端组件提供一系列�
 简单的说，就是在配置文件中列出Load Balancer（简称LB）后面所有的机器，Ribbon会自动
 的帮助你基于某种规则（如简单轮询，随机连接等）去连接这些机器。我们也很容易使用Ribbon
 实现负载均衡算法。
+
+**负载均衡选择策略**  
+- RandomRule(随机策略)
+- RoundRobinRule(轮询策略)
+- AvailabilityFilteringRule(可用过滤策略)
+- WeightedResponseTimeRule(响应时间加权重策略)
+- RetryRule(重试策略)
+- BestAvailableRule(最低并发策略)
+- ZoneAvoidanceRule(区域权重策略)
 	
 ### 2.3Feign 服务调用
 Feign是一个声明式WebService客户端。使用Feign能让编写Web Service客户端更加简单，
