@@ -14,6 +14,22 @@ eureka:
     instance-id: gateway-9527.com
     prefer-ip-address: true
 
+# hystrix超时时间设置
+# 线程池隔离，默认超时时间1000ms
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 8000
+
+ribbon:
+  # 请求连接的超时时间: 默认5000ms
+  ConnectTimeout: 5000
+  # 请求处理的超时时间: 默认5000ms
+  ReadTimeout: 5000
+
 
 zuul:
   #此处添加ignored-services的意义是忽略通过服务名可以访问微服务(添加完成之后不能通过服务名访问微服务)
@@ -24,6 +40,16 @@ zuul:
   routes:
     mydept.serviceId: microservicecloud-dept
     mydept.path: /mydept/**
+  #限流
+  ratelimit:
+      # 开启限流保护
+      enabled: true
+      # 60s内请求超过3次，服务端就抛出异常，60s后可以恢复正常请求
+      default-policy:
+        limit: 3
+        refresh-interval: 60
+        # 针对IP进行限流，不影响其他IP
+        type: origin
 
 info:
   app.name: hss-microservicecloud
