@@ -4,19 +4,16 @@ import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Zuul过滤器，必须继承ZuulFilter父类。
- * 当前类型的对象必须交由Spring容器管理。使用@Component注解描述。
- * 继承父类后，必须实现父类中定义的4个抽象方法。
- * shouldFilter、 run、 filterType、 filterOrder
+ * 使用zuul实现身份鉴权
  */
 @Component
-public class LoggerFilter extends ZuulFilter {
-
+public class LoginFilter extends ZuulFilter{
     private static final Logger logger = LoggerFactory.getLogger(LoggerFilter.class);
 
     /**
@@ -26,6 +23,8 @@ public class LoggerFilter extends ZuulFilter {
      */
     @Override
     public boolean shouldFilter() {
+        //设定拦截的黑白名单
+
         return true;
     }
 
@@ -40,10 +39,15 @@ public class LoggerFilter extends ZuulFilter {
         RequestContext rc = RequestContext.getCurrentContext();
         HttpServletRequest request = rc.getRequest();
 
-        logger.info("LoggerFilter.....method={},url={}",
-                request.getMethod(),request.getRequestURL().toString());
-        // 可以记录日志、鉴权，给维护人员记录提供定位协助、统计性能
+        logger.info("LoginFilter.....");
 
+        // 可以记录日志、鉴权，给维护人员记录提供定位协助、统计性能
+        Boolean flag = false;
+        if (flag) {
+            rc.setSendZuulResponse(false);
+            rc.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
+            rc.setResponseBody("Authentication failed!");
+        }
         return null;
     }
 
@@ -65,6 +69,6 @@ public class LoggerFilter extends ZuulFilter {
      */
     @Override
     public int filterOrder() {
-        return 0;
+        return 1;
     }
 }
