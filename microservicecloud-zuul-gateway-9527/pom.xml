@@ -82,4 +82,14 @@
             <version>1.3.4.RELEASE</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>zuul-gateway-9527</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
