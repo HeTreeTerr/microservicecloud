@@ -61,4 +61,14 @@
             <version>1.18.20</version>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>config-client-3355</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

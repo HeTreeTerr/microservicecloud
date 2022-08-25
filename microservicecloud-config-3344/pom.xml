@@ -57,4 +57,14 @@
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>config-3344</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>
